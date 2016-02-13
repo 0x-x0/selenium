@@ -9,6 +9,10 @@ addons:
 services:
   - selenium
 
-before_script:
-  - "export DISPLAY=:99.0"
-  - "/etc/init.d/xvfb start"
+build:
+  pre_ci_boot:
+    image_name: shippable/minv2
+    image_tag: latest
+  
+  ci:
+    - echo $PATH
